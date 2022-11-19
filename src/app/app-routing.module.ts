@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'index',
     component: AppComponent,
     children: [
       {
@@ -12,8 +12,9 @@ const routes: Routes = [
         loadChildren: () =>
           import('./register/register.module').then((m) => m.RegisterModule)
       }
-    ],
+    ]
   },
+  { path: '', redirectTo: 'register', pathMatch: 'full' }
 ];
 
 @NgModule({

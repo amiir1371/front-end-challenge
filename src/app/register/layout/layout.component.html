@@ -1,5 +1,8 @@
-<div class="card">
-    <p-steps [model]="items" [readonly]="true"></p-steps>
-    <p-toast></p-toast>
+<div class="steps-container">
+    <div class="card align-items-center justify-content-center col-12 md:col-8">
+        <p-steps [model]="items" [readonly]="true"></p-steps>
+        <p-toast></p-toast>
+        <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+        <router-outlet></router-outlet>
+    </div>
 </div>
-<router-outlet></router-outlet>

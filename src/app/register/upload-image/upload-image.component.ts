@@ -15,7 +15,7 @@ export class UploadImageComponent implements OnInit, OnDestroy {
   @ViewChild('fileUpload') fileUpload!: FileUpload;
 
   image!: File;
-  imgURL: string | ArrayBuffer | null = 'assets/images/avatar.webp';
+  imgURL: string | ArrayBuffer | null = '';
   uploaded: boolean = false;
 
   private registerServiceSubscription: Subscription = new Subscription();
@@ -33,6 +33,9 @@ export class UploadImageComponent implements OnInit, OnDestroy {
         this.image = register.file;
         this.previewImage(this.image);
       }
+      else {
+        this.imgURL = 'assets/images/avatar.webp';
+      }
     });
   }
 
@@ -45,7 +48,7 @@ export class UploadImageComponent implements OnInit, OnDestroy {
   nextPage() {
     if (this.image) {
       this.registerService.setFile(this.image);
-      this.router.navigate(['requested-fields']);
+      this.router.navigate(['required-fields']);
       return;
     }
     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please select an Image' });
@@ -57,6 +60,6 @@ export class UploadImageComponent implements OnInit, OnDestroy {
     reader.onload = (_event) => {
       this.imgURL = reader.result;
     }
-    
+
   }
 }

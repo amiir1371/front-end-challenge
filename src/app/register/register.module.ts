@@ -7,9 +7,9 @@ import { StepsModule } from 'primeng/steps';
 import { UploadImageComponent } from './upload-image/upload-image.component';
 import { CardModule } from 'primeng/card';
 import { FileUploadModule } from 'primeng/fileupload';
-import {AvatarModule} from 'primeng/avatar';
-import {InputTextModule} from 'primeng/inputtext';
-import { RequestedFieldsComponent } from './requested-fields/requested-fields.component';
+import { AvatarModule } from 'primeng/avatar';
+import { InputTextModule } from 'primeng/inputtext';
+import { RequiredFieldsComponent } from './required-fields/required-fields.component';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,15 +21,17 @@ import { PeopleComponent } from './people/people.component';
 import { TableModule } from 'primeng/table';
 import { SummaryComponent } from './summary/summary.component';
 import { RegisterService } from '../services/register.service';
-import {ToastModule} from 'primeng/toast';
+import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 
 @NgModule({
   declarations: [
     LayoutComponent,
     UploadImageComponent,
-    RequestedFieldsComponent,
+    RequiredFieldsComponent,
     PeopleComponent,
     SummaryComponent
   ],
@@ -49,9 +51,10 @@ import { MessageService } from 'primeng/api';
     TableModule,
     InputNumberModule,
     ImageModule,
-    ToastModule
+    ToastModule,
+    ConfirmDialogModule
 
   ],
-  providers:[RegisterService,MessageService]
+  providers: [RegisterService, MessageService, ConfirmationService]
 })
 export class RegisterModule { }

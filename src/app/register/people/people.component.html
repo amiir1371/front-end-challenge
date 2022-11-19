@@ -1,4 +1,3 @@
-
 <div class="select-person-content">
     <p-card>
         <ng-template pTemplate="title">
@@ -8,7 +7,8 @@
             Select a person from list
         </ng-template>
         <ng-template pTemplate="content">
-            <p-table [value]="people" selectionMode="single" [(selection)]="selectedPerson"  dataKey="id" [tableStyle]="{'min-width': '50rem'}">
+            <p-table [value]="people" selectionMode="single" [(selection)]="selectedPerson" dataKey="id"
+                [tableStyle]="{'min-width': '50rem'}">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>select</th>

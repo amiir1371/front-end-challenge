@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
-import { People, Person } from 'src/app/models';
+import { Person } from 'src/app/models';
 import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
@@ -12,25 +12,34 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class PeopleComponent implements OnInit {
 
-  people: Person[];
+  people: Person[] = [];
   selectedPerson!: Person;
 
   private registerServiceSubscription: Subscription = new Subscription();
+  private fetchPeopleSubscription: Subscription = new Subscription();
 
-  constructor(private router: Router, private registerService: RegisterService, private messageService: MessageService) {
-    this.people = new People().people;
-  }
+
+  constructor(private router: Router, private registerService: RegisterService, private messageService: MessageService) { }
 
   ngOnDestroy(): void {
     if (this.registerServiceSubscription) {
       this.registerServiceSubscription.unsubscribe();
     }
+    if (this.fetchPeopleSubscription) {
+      this.fetchPeopleSubscription.unsubscribe();
+    }
   }
 
   ngOnInit(): void {
+
+    this.fetchPeopleSubscription = this.registerService.fetchePeople$.subscribe(people => {
+      if (people) {
+        this.people = people;
+      }
+    });
+
     this.registerServiceSubscription = this.registerService.fetcheRegister$.subscribe(register => {
       if (register.selectedPerson) {
-        console.log(register.selectedPerson);
         this.selectedPerson = register.selectedPerson;
       }
     });
@@ -39,7 +48,6 @@ export class PeopleComponent implements OnInit {
   nextPage() {
     if (this.selectedPerson) {
       this.registerService.setPerson(this.selectedPerson);
-      this.registerService.complete();
       this.router.navigate(['summary']);
       return;
     }
@@ -47,7 +55,7 @@ export class PeopleComponent implements OnInit {
   }
 
   prevPage() {
-    this.router.navigate(['requested-fields']);
+    this.router.navigate(['required-fields']);
   }
 
 }

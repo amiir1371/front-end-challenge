@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfirmationService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { Register } from 'src/app/models';
 import { RegisterService } from 'src/app/services/register.service';
@@ -16,9 +17,7 @@ export class SummaryComponent implements OnInit, OnDestroy {
 
   private registerCompleteSubscription: Subscription = new Subscription();
 
-  constructor(private registerService: RegisterService, private router: Router) {
-
-  }
+  constructor(private registerService: RegisterService, private router: Router, private confirmationService: ConfirmationService) { }
 
   ngOnDestroy(): void {
     if (this.registerCompleteSubscription) {
@@ -28,15 +27,26 @@ export class SummaryComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.registerCompleteSubscription = this.registerService.fetcheRegister$.subscribe(register => {
-      this.register=register;
-      if(register.file){
+      this.register = register;
+      if (register.file) {
         this.previewImage(register.file);
       }
     });
   }
 
   Complete() {
-
+    this.confirmationService.confirm({
+      message: 'Your changes has been saved,Do you want to start from the first step?',
+      header: 'Complete',
+      icon: 'pi pi-check-circle',
+      accept: () => {
+        this.registerService.resetData();
+        this.router.navigate(['']);
+      },
+      reject: () => {
+        this.router.navigate(['index']);
+      }
+    });
   }
 
   prevPage() {
