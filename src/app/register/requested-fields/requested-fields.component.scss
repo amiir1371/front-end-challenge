@@ -1,0 +1,9 @@
+.requested-fields-content {
+    ::ng-deep .p-inputwrapper {
+
+        .p-component,
+        .p-calendar {
+            width: 100%;
+        }
+    }
+}

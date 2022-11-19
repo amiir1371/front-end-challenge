@@ -1,0 +1,24 @@
+<div class="upload-image-content">
+    <p-card>
+        <ng-template pTemplate="title">
+            Upload your Image
+        </ng-template>
+        <ng-template pTemplate="content">
+            <div class="flex flex-column justify-content-center align-items-center">
+                <div class="image-content w-max" >
+                    <p-image src="{{imgURL}}" alt="Image" width="250" ></p-image>
+                </div>
+
+                <div class="flex flex-column align-items-center w-max">
+                    <h5>Please choose an image and upload it.</h5>
+                        <p-fileUpload #fileUpload name="myfile[]" mode="basic"  accept="image/*" chooseLabel="Browse" [customUpload]="true" (uploadHandler)="onUpload($event.files)"></p-fileUpload>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="grid grid-nogutter justify-content-end">
+                <p-button  label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>

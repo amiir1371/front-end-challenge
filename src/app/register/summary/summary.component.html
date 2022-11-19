@@ -1,0 +1,37 @@
+<div class="select-person-content">
+    <p-card>
+        <ng-template pTemplate="title">
+            Summary
+        </ng-template>
+        <ng-template pTemplate="subtitle">
+
+        </ng-template>
+        <ng-template pTemplate="content">
+            <div class="grid grid-nogutter surface-section text-800 justify-content-center">
+                <div class="col-12 md:col-3 ">
+                    <img src="{{imgURL}}" alt="Image" class="md:ml-auto block md: w-full">
+                </div>
+                <div class="col-12 md:col-4 p-6 text-center md:text-left flex align-items-center ">
+                    <section>
+                        <p>Amount: <span class=" text-primary font-bold mb-1">{{register.amount | currency}}</span></p>
+                        <p>Date: <span class=" text-primary  font-bold mb-1">{{register.date | date}}</span></p>
+                        <p>Status: <span class=" text-primary font-bold mb-1">{{register.status?.value}}</span></p>
+                        <p>Source of fund: <span class=" text-primary font-bold mb-1">{{register.sourceOfFund}}</span>
+                        </p>
+                        <p>Selected person: <span
+                                class=" text-primary font-bold mb-1">{{register.selectedPerson?.firstName}}
+                                {{register.selectedPerson?.lastName}}</span></p>
+                        <!-- <div class="text-6xl text-primary font-bold mb-3">your visitors deserve to see</div>
+                        <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+                    </section>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="grid grid-nogutter justify-content-between">
+                <p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>
+                <p-button label="Complete" (onClick)="Complete()"></p-button>
+            </div>
+        </ng-template>
+    </p-card>
+</div>
