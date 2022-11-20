@@ -41,7 +41,7 @@ export class SummaryComponent implements OnInit, OnDestroy {
       icon: 'pi pi-check-circle',
       accept: () => {
         this.registerService.resetData();
-        this.router.navigate(['']);
+        this.router.navigate(['upload-image']);
       },
       reject: () => {
         this.router.navigate(['index']);

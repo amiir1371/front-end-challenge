@@ -11,10 +11,11 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', component: UploadImageComponent },
+      { path: 'upload-image', component: UploadImageComponent },
       { path: 'general', component: GeneralComponent },
       { path: 'people', component: PeopleComponent },
       { path: 'summary', component: SummaryComponent },
+      { path: '', redirectTo: 'upload-image', pathMatch: 'full' }
     ],
   },
 

@@ -64,6 +64,6 @@ export class GeneralComponent implements OnInit {
   }
 
   prevPage() {
-    this.router.navigate(['']);
+    this.router.navigate(['upload-image']);
   }
 }

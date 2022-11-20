@@ -7,7 +7,7 @@ import { MenuItem } from 'primeng/api/menuitem';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  
+
   items: MenuItem[] = [];
 
   constructor() { }
@@ -15,7 +15,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.items = [{
       label: 'Upload Image',
-      routerLink: ''
+      routerLink: 'upload-image'
     },
     {
       label: 'General Fields',
