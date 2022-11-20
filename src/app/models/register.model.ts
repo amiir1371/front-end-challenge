@@ -1,4 +1,4 @@
-import { Person, Status } from "./";
+import { Person, Status } from "../models";
 
 
 export interface Register {

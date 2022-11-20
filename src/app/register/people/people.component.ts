@@ -55,7 +55,7 @@ export class PeopleComponent implements OnInit {
   }
 
   prevPage() {
-    this.router.navigate(['required-fields']);
+    this.router.navigate(['general']);
   }
 
 }

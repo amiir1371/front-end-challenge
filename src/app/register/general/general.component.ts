@@ -6,11 +6,12 @@ import { RegisterService } from 'src/app/services/register.service';
 
 
 @Component({
-  selector: 'app-required-fields',
-  templateUrl: './required-fields.component.html',
-  styleUrls: ['./required-fields.component.scss']
+  selector: 'app-general-fields',
+  templateUrl: './general.component.html',
+  styleUrls: ['./general.component.scss']
 })
-export class RequiredFieldsComponent implements OnInit {
+export class GeneralComponent implements OnInit {
+
   register: Register = {};
   isSubmitted: boolean = true;
   minDate = new Date();
@@ -61,8 +62,8 @@ export class RequiredFieldsComponent implements OnInit {
     }
     this.isSubmitted = false;
   }
-  
+
   prevPage() {
-    this.router.navigate(['upload-image']);
+    this.router.navigate(['']);
   }
 }

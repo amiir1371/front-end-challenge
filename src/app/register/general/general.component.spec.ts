@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequiredFieldsComponent } from './required-fields.component';
+import { GeneralComponent } from './general.component';
 
-describe('RequiredFieldsComponent', () => {
-  let component: RequiredFieldsComponent;
-  let fixture: ComponentFixture<RequiredFieldsComponent>;
+describe('GeneralComponent', () => {
+  let component: GeneralComponent;
+  let fixture: ComponentFixture<GeneralComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RequiredFieldsComponent]
+      declarations: [GeneralComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(RequiredFieldsComponent);
+    fixture = TestBed.createComponent(GeneralComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

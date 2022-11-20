@@ -48,10 +48,10 @@ export class UploadImageComponent implements OnInit, OnDestroy {
   nextPage() {
     if (this.image) {
       this.registerService.setFile(this.image);
-      this.router.navigate(['required-fields']);
+      this.router.navigate(['general']);
       return;
     }
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please select an Image' });
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please select an image' });
   }
 
   previewImage(image: File) {

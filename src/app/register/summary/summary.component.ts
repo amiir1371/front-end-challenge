@@ -36,7 +36,7 @@ export class SummaryComponent implements OnInit, OnDestroy {
 
   Complete() {
     this.confirmationService.confirm({
-      message: 'Your changes has been saved,Do you want to start from the first step?',
+      message: 'Your changes has been saved, Do you want to start from the first step?',
       header: 'Complete',
       icon: 'pi pi-check-circle',
       accept: () => {

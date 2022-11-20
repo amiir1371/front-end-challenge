@@ -9,7 +9,7 @@ import { CardModule } from 'primeng/card';
 import { FileUploadModule } from 'primeng/fileupload';
 import { AvatarModule } from 'primeng/avatar';
 import { InputTextModule } from 'primeng/inputtext';
-import { RequiredFieldsComponent } from './required-fields/required-fields.component';
+import { GeneralComponent } from './general/general.component';
 import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +31,7 @@ import { ConfirmationService } from 'primeng/api';
   declarations: [
     LayoutComponent,
     UploadImageComponent,
-    RequiredFieldsComponent,
+    GeneralComponent,
     PeopleComponent,
     SummaryComponent
   ],
